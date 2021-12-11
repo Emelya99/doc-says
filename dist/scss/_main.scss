@@ -1,0 +1,568 @@
+// Header Styles
+.header{
+    padding: 23px 0;
+
+    &__wrapper{
+        @include flex(flex,space-between,center,wrap);
+    }
+
+    &__btn{
+        padding: 14px 21px 14px 22px;
+        width: auto;
+        border: 1px solid $access-color;
+        margin-left: 86px;
+    }
+}
+
+.logo{
+    position: relative;
+    z-index: 20;
+}
+
+// Menu Style
+.menu{
+    margin-left: auto;
+
+    .header__btn{
+        display: none;
+        margin-left: 0;
+    }
+
+    &__items{
+        display: flex;
+    }
+
+    &__item + &__item{
+        margin-left: 38px;
+    }
+
+    &__link{
+        font-size: 17px;
+        line-height: 27px;
+        @include hover(transparent,$access-color);
+    }
+
+    &__btn{
+        display: none;
+        padding: 0;
+        border: none;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        background-color: transparent;
+        position: relative;
+        z-index: 20;
+
+        & span{
+            transition: $transition; 
+            display: block;
+            height: 3px;
+            background-color: $access-color;
+            position: relative;
+            &::after,
+            &::before{
+                transition: $transition; 
+                content: '';
+                position: absolute;
+                width: 30px;
+                height: 3px;
+                background-color: $access-color;
+                left: 0;
+            }
+            &::after{
+                top: 10px;
+            }
+            &::before{
+                top: -10px;
+            }
+        }
+
+        &:hover{
+            & span{
+                background-color: #C6F1E2;
+                &::after,
+                &::before{
+                    background-color: #C6F1E2;
+                }
+            }
+        }
+
+        &.active{
+            & span{ 
+                background-color: inherit;
+
+                &::after,
+                &::before{
+                    background-color: #C6F1E2;
+                }
+                &::after{
+                    transform: rotate(45deg);
+                    top: 0;
+                }
+                &::before{
+                    top: 0;
+                    transform: rotate(-45deg);
+                }
+            }
+
+            &:hover span{
+                &::after,
+                &::before{
+                    background-color: $access-color;
+                }
+            }
+        }
+
+    }
+}
+
+// Welcome Style
+.welcome{
+    background: $bg-color;
+    @include section-default(187px,187px);
+    text-align: center;
+
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__subtitle{
+        @extend %h3-style;
+        @include margin-bottom(44px,30px,20px);
+    }
+
+    &__title{
+        @extend %h1-style;
+        @include margin-bottom(31px,null,20px);
+    }
+
+    &__text{
+        @include margin-bottom(82px,45px,30px);
+    }
+}
+
+// Info
+.info{
+    color: $invert-color;
+    background: $access-color;
+    @include section-default(104px,105px);
+    text-align: center;
+
+    & h2{
+        color: $invert-color;
+        font-family: $secondary-font;
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 2px;
+    }
+
+    &__wrapper{
+        @include flex(flex,space-between,null,wrap);
+        margin: 0 -15px;
+    }
+
+    &__item{
+        width: 33.33%;
+        padding: 0 15px;
+
+        & > p{
+            font-size: 20px;
+            line-height: 1.6em;
+        }
+    }
+
+    &__phones{
+
+        &-link{
+            font-size: 20px;
+            line-height: 1.6em;
+            @include hover(transparent,$invert-color);
+        }
+    }
+}
+
+// Biography
+.biography{
+    padding-top: 160px;
+
+    &__wrapper{
+        margin: 0 -15px;
+        @include flex(flex,space-between,center,wrap);
+    }
+
+    &__person{
+        width: 42%;
+        padding: 0 15px;
+    }
+
+    &__title{
+        @include margin-bottom(48px,25px,15px);
+    }
+
+    &__image{
+        max-width: 370px;
+    }
+
+    &__content{
+        width: 58%;
+        padding: 0px 15px 0 11px;
+    }
+
+    &__text{
+        @include margin-bottom(62px,35px,25px);
+    }
+}
+
+// Patient Info
+.patient-info{
+    @include section-default(200px,160px);
+
+    &__wrapper{
+       display: flex;
+        flex-direction: column;    
+    }
+
+    &__tabs{
+        @include margin-bottom(35px,25px,null);
+        margin-top: -34px;
+    }
+
+    .ui-accordion .ui-accordion-header{
+        font-family: $primary-font;
+        @extend %h3-style;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        color: $access-color;
+        padding: 34px 0 40px;
+        border: 1px solid $grey-color;
+        border-width: 1px 0px 0px 0px;
+        transition: $transition;
+
+        &:first-child{
+            border-top: none;
+        }
+
+        .ui-icon{
+            display: none;
+        }
+
+        &:hover{
+            color: #C6F1E2;
+        }
+    }
+
+    .ui-accordion .ui-accordion-content{
+        padding: 0;
+        overflow: inherit;
+    }
+
+    .ui-widget-content{
+        border: none;
+        color: $access-color;
+        height: auto;
+    }
+
+    &__content{
+        @include flex(flex,space-between,null,wrap);
+        margin: 0 -15px;
+    }
+
+    &__item{
+        width: 50%;
+        padding: 0 15px 71px;
+        margin-top: -12px;
+    }
+
+    &__text{
+        font-family: $primary-font;
+        line-height: 1.6em;
+        @include margin-bottom(32px,20px,15px);
+    }
+
+    &__list{
+        font-family: $primary-font;
+        line-height: 1.6em;
+
+        &-item{
+            padding-left: 28px;
+            position: relative;
+
+            &:after{
+                content: "";
+                position: absolute;
+                top: 8px;
+                left: 1px;
+                width: 16px;
+                height: 16px;
+                background: #C6F1E2;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+// Service
+.service{
+    @include section-default(160px,159px);
+    background: $bg-color;
+
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title,
+    &__subtitle{
+        text-align: center;
+    }
+
+    &__title{
+        @include margin-bottom(58px,35px,25px);
+    }
+
+    &__slider{
+        margin: 0 -15px;
+    }
+
+    &__item{
+        padding: 0 15px 68px;
+
+        &-img{
+            @include margin-bottom(30px,null,null);
+        }
+
+        &-title{
+            @extend %h3-style;
+            @include margin-bottom(20px,null,null);
+        }
+    }
+}
+
+// Slick Dots
+.slick-dots{
+    @include flex(flex,center,null,null);
+
+    & button{
+        font-size: 0;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        background: $access-color;
+        border-radius: 50%;
+        border: 12px solid $bg-color;
+        margin: 0 3px;
+
+        &:hover{
+            border-color: $invert-color;
+        }
+    }
+
+    & .slick-active button{
+        border-color: $invert-color;
+    }
+}
+
+// Question
+.question{
+    @include section-default(160px,160px);
+    text-align: center;
+
+    &__wrapper{
+        @include flex(flex,null,center,null);
+        flex-direction: column;
+    }
+
+    &__title{
+        @include margin-bottom(58px,35px,25px);
+    }
+}
+
+// Form
+.form{
+    max-width: 570px;
+    width: 100%;
+
+    &__acceptance{
+        font-size: 15px;
+        line-height: 24px;
+        margin-top: -5px;
+        @include margin-bottom(58px,45px,30px);
+        text-align: left;
+
+        & a{
+            @include hover($access-color,transparent);
+        }
+    }
+
+    &__btn{
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+// Testimonials
+.testimonials{
+    @include section-default(160px,160px);
+    background: $bg-color;
+
+    &__body{
+        @include flex(flex,null,center,null);
+        flex-direction: column;
+    }
+
+    &__subtitle,
+    &__title{
+        text-align: center;
+    }
+
+    &__title{
+        @include margin-bottom(58px,35px,25px);
+    }
+
+    &__wrapper{
+        @include flex(flex,space-between,null,wrap);
+        margin: 0 -15px;
+    }
+
+    &__item{
+        width: 50%;
+        padding: 0 15px;
+    }
+
+    &__box{
+        background: $invert-color;
+        padding: 50px 50px 51px 50px;
+
+        &:not(:last-child){
+            margin-bottom: 30px;
+        }
+
+        &-info{
+            display: flex;
+            @include margin-bottom(31px,20px,15px);
+        }
+
+        &-img{
+            border-radius: 50%;
+            margin-right: 18px;
+            width: 64px;
+            height: 64px;
+        }
+
+        &-content{
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            font-family: $secondary-font;
+            font-size: 15px;
+            line-height: 19px;
+            letter-spacing: 0px;
+        }
+
+        &-name{
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        &-reviewed{
+            font-weight: 400;
+        }
+    }
+}
+
+// Footer Style
+.footer{
+    color: $invert-color;
+    background: $access-color;
+    text-align: center;
+    padding-top: 104px;
+
+    & h2{
+        color: $invert-color;
+        font-family: $secondary-font;
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 2px;
+    }
+
+    &__wrapper{
+        padding: 84px 0 110px;
+    }
+
+    &__copyright{
+        font-size: 15px;
+        line-height: 24px;
+        @include margin-bottom(35px,null,25px);
+        @include flex(flex,center,center,wrap);
+
+        &-text{
+            margin: 0 12px;
+        }
+
+        &-link{
+            @include hover(transparent,$invert-color);
+            margin: 0 12px;
+        }
+    }
+
+    &__social{
+        @include flex(flex,center,null,null);
+
+        &-item{
+            margin: 0 19px;
+        }
+
+        & svg{
+            width: 28px;
+            height: 28px;
+            fill: $invert-color;
+
+            &:hover{
+                fill: #C6F1E2;
+            }
+        }
+    }
+
+    &__map{
+        min-height: 600px;
+        @include for-tablet{
+            min-height: 450px;
+        }
+        @include for-mobile{
+            min-height: 350px;
+        }
+    }
+}
+
+// ToTOP
+#toTop{
+    position: fixed;
+    z-index: 90;
+    right: 60px;
+    bottom: 60px;
+    width: 60px;
+    height: 60px;
+    fill: $black-color;
+    background-color: $grey-color;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover{
+        fill: $invert-color;
+        background-color: $access-color;
+    }
+
+    @media(max-width:$tablet){
+        right: 20px;
+        bottom: 20px;
+    }
+    @media(max-width:$mobile){
+        opacity: 0;
+        visibility: hidden;
+    }
+}

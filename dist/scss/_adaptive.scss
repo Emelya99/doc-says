@@ -1,0 +1,243 @@
+@media(max-width:$tablet){
+    .header__btn{
+        margin-left: 40px;
+    }
+
+    .biography{
+        padding-top: 100px;
+
+        &__image{
+            max-width: 100%;
+        }
+
+        &__wrapper{
+            align-items: flex-start;
+        }
+    }
+
+    .patient-info{
+
+        .ui-accordion .ui-accordion-header{
+            padding: 20px 0;
+        }
+
+        &__tabs{
+            margin-top: -20px;
+        }
+
+        &__item{
+            margin-top: 0;
+            padding: 0 15px 40px;
+        }
+
+        &__list-item:after{
+            top: 6px;
+        }
+    }
+
+    .service{
+
+        &__item{
+            padding-bottom: 50px;
+        }
+    }
+
+    .testimonials{
+
+        &__box{
+            padding: 30px;
+        }
+    }
+
+    .footer{
+        padding-top: 100px;
+
+        &__wrapper{
+            padding: 60px 0 100px;
+        }
+    }
+}
+
+@media(max-width:940px){
+    .header{
+
+        &__btn{
+            display: none;
+        }
+    }
+
+    .menu{
+
+        &__btn{
+            display: block;
+        }
+
+        .header__btn{
+            display: block;
+        }
+
+        .menu__content{
+            transition: $transition;
+            transform: translateX(-150%);
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0px;
+            right: 0px;
+            margin-top: 0px;
+            padding: 65px 15px 30px;
+            background-color: $invert-color;
+        }
+
+        .menu__items{
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .menu__content.active{
+            transform: translate(0%); 
+        }
+
+        &__item + &__item{
+            margin-left: 0;
+        }
+    }
+}
+
+@media(max-width:$mobile){
+    .info{
+        
+        &__item{
+            width: 50%;
+
+            &:last-child{
+                padding-top: 30px;
+                width: 100%;
+            }
+        }
+    }
+
+    .biography{
+        padding-top: 60px;
+
+        &__person{
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        &__content{
+            width: 100%;
+        }
+    }
+
+    .patient-info{
+
+        .ui-accordion .ui-accordion-header{
+            padding: 15px 0;
+        }
+
+        &__tabs{
+            margin-top: -15px;
+        }
+
+        &__item{
+            width: 100%;
+            margin-top: 0;
+            padding: 0 15px 30px;
+
+            &:first-child{
+                padding-bottom: 15px;
+            }
+        }
+
+        &__list-item:after {
+            top: 3px;
+        }
+
+        &__text{
+            font-size: 14px;
+        }
+
+        &__list{
+            font-size: 14px;
+        }
+    }
+
+    .service{
+
+        &__item{
+            padding-bottom: 30px;
+        }
+    }
+
+    .form{
+
+        &__acceptance{
+            margin-top: 0;
+        }
+    }
+
+    .testimonials{
+
+        &__item{
+            width: 100%;
+
+            &:not(:last-child){
+                margin-bottom: 15px;
+            }
+        }
+
+        &__box{
+            padding: 15px;
+
+            &-info{
+                flex-direction: column;
+            }
+
+            &:not(:last-child){
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    .footer{
+        padding-top: 60px;
+
+        &__wrapper{
+            padding: 60px 0 60px;
+        }
+    }
+}
+
+@media(max-width:425px){
+    .menu .header__btn{
+        width: 100%;
+    }
+
+    .info{
+
+        &__item{
+            width: 100%;
+
+            &:nth-child(2){
+                padding-top: 30px;
+            }
+        }
+    }
+
+    .footer{
+
+        &__copyright{
+
+            &-text{
+                width: 100%;
+                display: block;
+                margin: 0 0 5px 0;
+            }
+
+            &-link{
+                margin: 0 10px;
+            }
+        }
+    }
+}

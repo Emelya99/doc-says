@@ -1,0 +1,191 @@
+html,
+body {
+	height: 100%;
+}
+
+html{
+	scroll-behavior:smooth;
+	word-break: break-word;
+}
+
+body{
+	color: $access-color;
+	font-family: $primary-font;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.6em;
+	@include media-query(18px,null,16px);
+	transition: $transition;
+}
+
+section{
+	overflow: hidden;
+}
+
+input{
+	padding: 19px 32px 23px;
+	color: $access-color;
+	opacity: 0.5;
+	background-color: #F9FAFB;
+	border: 1px solid $grey-color;
+	border-radius: 0;
+	width: 100%;
+	transition: $transition;
+	margin-bottom: 30px;
+	@include for-mobile{
+		padding: 15px;
+		margin-bottom: 15px;
+	}
+
+	&::placeholder{
+		color: $access-color;
+		opacity: 1;
+	}
+
+	&:focus{
+		outline: none;
+		background-color: $invert-color;
+		border-color: $access-color;
+		opacity: 1;
+	}
+}
+
+textarea{
+	resize: vertical;
+}
+
+a{
+	transition: $transition;
+	color: inherit;
+	font-size: 15px;
+	line-height: 24px;
+}
+
+img{
+	object-fit: cover;
+}
+
+// Wrapper settings
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    flex: 1 1 auto;
+}
+
+// Buttons
+button{
+	border: none;
+	cursor: pointer;
+	transition: $transition;
+}
+
+.btn{
+	font-size: 15px;
+	line-height: 24px;
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
+	display: inline-block;
+	width: 100%;
+	max-width: 284px;
+	padding: 26px 15px;
+	text-align: center;
+
+	& svg{
+		margin-left: 5px;
+	}
+
+	@include for-mobile{
+		padding: 20px 15px;
+	}
+}
+
+.btn-primary{
+	color: $invert-color;
+	background-color: $access-color;
+
+	& svg{
+		transition: $transition;
+		fill: $invert-color;
+	}
+
+	&:hover{
+		color: $access-color;
+		background-color: $bg-color;
+
+		& svg{
+			fill: $access-color;
+		}
+	}
+}
+
+.btn-secondary{
+	color: $access-color;
+	background-color: $bg-color;
+
+	& svg{
+		transition: $transition;
+		fill: $access-color;
+	}
+
+	&:hover{
+		color: $invert-color;
+		background-color: $access-color;
+
+		& svg{
+			fill: $invert-color;
+		}
+	}
+}
+
+.btn-invert{
+	color: $access-color;
+	background-color: $invert-color;
+
+	& svg{
+		transition: $transition;
+		fill: $access-color;
+	}
+
+	&:hover{
+		color: $invert-color;
+		background-color: $access-color;
+
+		& svg{
+			fill: $invert-color;
+		}
+	}
+}
+
+// Title Subtitle
+h1,h2{
+	font-family: $title-font;
+}
+
+h1,h2,h3,h4,h5,h6{
+	color: $access-color;
+	font-weight: 400;
+}
+
+.title{
+	font-size: 64px;
+	line-height: 70px;
+	@include media-query(48px,1.1em,32px);
+	@include margin-bottom(48px,35px,25px);
+}
+
+.subtitle{
+	font-family: $secondary-font;
+	font-size: 15px;
+	line-height: 19px;
+	@include margin-bottom(21px,null,15px);
+}

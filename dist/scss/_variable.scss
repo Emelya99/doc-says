@@ -1,0 +1,121 @@
+$access-color: #0C1D4B;
+$bg-color: #E9FAF4;
+$invert-color: #FFF;
+$black-color: #000;
+$grey-color: #DBDDE4;
+$primary-font: 'DM Sans', sans-serif;
+$secondary-font: 'Source Code Pro', monospace;
+$title-font: 'DM Serif Text', serif;
+$transition: all .4s ease;
+$tablet: 1024px;
+$mobile: 767px;
+
+
+// Mixins
+@mixin for-tablet{
+    @media(max-width:$tablet){
+        @content;
+    }
+}
+
+@mixin for-mobile{
+    @media(max-width:$mobile){
+        @content;
+    }
+}
+
+@mixin section-default($padding-top,$padding-bottom){
+    padding: $padding-top 0 $padding-bottom 0;
+    @media(max-width:$tablet){
+        padding: 100px 0;
+    }
+    @media(max-width:$mobile){
+        padding: 60px 0;
+    }
+}
+
+@mixin media-query($tablet-size, $tablet-lh, $mobile-size){
+    @media(max-width:$tablet){
+        font-size: $tablet-size;
+        line-height: $tablet-lh;
+    }
+    @media(max-width:$mobile){
+        font-size: $mobile-size; 
+    }
+}
+
+@mixin flex($display, $justify-content, $align-items, $wrap){
+    display: $display;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-wrap: $wrap;
+}
+
+@mixin margin-bottom($mb,$mb-tablet,$mb-mobile){
+    margin-bottom: $mb;
+    @media(max-width:$tablet){
+        margin-bottom: $mb-tablet;
+    }
+    @media(max-width:$mobile){
+        margin-bottom: $mb-mobile;
+    }
+}
+
+@mixin background($imgpath, $position:center center, $repeat: no-repeat, $size:cover) {
+    background: {
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+        size: $size;
+    }
+}
+
+@mixin gap-wrapper($gap,$gap-tablet){
+    margin: 0 $gap;
+    @media(max-width:$tablet){
+        margin: 0 $gap-tablet;
+    }
+}
+
+@mixin gap-column($gap,$gap-tablet){
+    padding: 0 $gap;
+    @media(max-width:$tablet){
+        padding: 0 $gap-tablet;
+    }
+}
+
+@mixin hover($background-on,$background-off){
+    position: relative;
+
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        transition: $transition;
+        background: $background-on;
+    }
+
+    &:hover{
+        &::before{
+            background: $background-off;
+        }
+    }
+}
+
+
+// Extend
+%h1-style{
+    font-size: 80px;
+    line-height: 1.1em;
+    @include media-query(56px,null,38px);
+}
+
+%h3-style{
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: -0.32px;
+    @include media-query(28px,1.3em,24px);
+}
